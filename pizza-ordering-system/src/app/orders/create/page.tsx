@@ -24,7 +24,11 @@ export default function Create() {
   };
 
   const handleOrderSubmit = async () => {
-    const response1 = await fetch(`/api/v1/pizzas/${pizza?.pizzaId}/order`, {
+    if (!pizza) {
+      return;
+    }
+
+    const response1 = await fetch(`/api/v1/pizzas/${pizza.pizzaId}/order`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -6,7 +6,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 
 export default function Orders() {
-  const [pizzas, setPizzas] = useState<null | Pizza[]>(null);
+  const [orderedPizzas, setOrderedPizzas] = useState<null | Pizza[]>(null);
 
   useEffect(() => {
     (async () => {
@@ -31,7 +31,7 @@ export default function Orders() {
             return 0;
           }
         });
-        setPizzas(orderedPizzas);
+        setOrderedPizzas(orderedPizzas);
       }
     })();
   }, []);
@@ -40,12 +40,12 @@ export default function Orders() {
     <>
       <Header />
       <main className="p-5">
-        {pizzas?.length === 0 && (
+        {orderedPizzas?.length === 0 && (
           <div className="text-sm md:text-base text-center">
             No orders were found
           </div>
         )}
-        {pizzas?.map((pizza) => (
+        {orderedPizzas?.map((pizza) => (
           <div
             key={pizza.pizzaId}
             className="card bg-primary dark:bg-neutral max-w-6xl mb-2 m-auto"

@@ -14,7 +14,7 @@ export interface Pizza {
   pizzaId: number;
   description: string;
   orderPrice: number;
-  orderedAt?: string;
+  orderedAt: null | string;
   size: Size;
   toppings: Topping[];
 }
